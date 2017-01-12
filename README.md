@@ -25,7 +25,7 @@ This came about while training generative models, when I noticed that, at first,
 
 ___
 
-### [Direct second-derivative estimation for Optimization](https://google.com)
+### [Direct second-derivative estimation for Optimization](https://github.com/samlobel/DIRECT_CURVATURE_ESTIMATION)
 This experiments with a more direct computation of the second-derivative than is used in algorithms like ADAM. Instead of maintaining a moving average, this method uses more of a taylor-expansion approach, and chooses a learning rate based on a direct compuation of the second-derivative.
 #### Design overview
 * The algorithm begins like most optimization algorithms, by taking the gradient of the parameters with respect to some minibatch error.
