@@ -25,6 +25,10 @@ This came about while training generative models, when I noticed that, at first,
 
 ___
 
+### TO ADD: REMOVE_ZEROS_OPTIMIZER
+This is an optimizer I'm particularly proud of, made to deal with sparse data and sparsity from ReLus especially well. 
+___
+
 ### [Direct second-derivative estimation for Optimization](https://github.com/samlobel/DIRECT_CURVATURE_ESTIMATION)
 This experiments with a more direct computation of the second-derivative than is used in algorithms like ADAM. Instead of maintaining a moving average, this method uses more of a taylor-expansion approach, and chooses a learning rate based on a direct compuation of the second-derivative.
 #### Design overview
@@ -36,22 +40,19 @@ This experiments with a more direct computation of the second-derivative than is
 
 ___
 
-### TO ADD: REMOVE_ZEROS_OPTIMIZER
-
-___
 
 ## Non-Machine Learning
 ### [IDEAA](https://github.com/samlobel/IDEAA)
 A server, written in flask, which provides a web interface to a series of mass spectrometry scripts. Much easier than delving into the command prompt, especially if computers aren't what you do for a living.
 
-Full disclosure: I wrote this as a helpful tool for my father's laboratoy (he's a biochemist). It's now used in his laboratory, as well as a few others which do similar work. We are planning to release it on a broader scale soon.
+Full disclosure: I wrote this as a helpful tool for my father's laboratoy (he's a biochemist). It's now used in his laboratory, as well as a few others which do similar work. We're planning to release it on a broader scale soon.
 
-## TO DO: [Infinify](https://google.com)
-##### Found here: INSERT LINK HERE!
+## TO DO: [Infinify](http://ec2-54-191-228-243.us-west-2.compute.amazonaws.com/)
+##### Might also be [here](http://infinify.us)
 A pretty neat webapp I built with a friend, which provides the 'picture within a picture, to infinity' effect. You upload a photo, choose a rectangle that will be your picture, choose a quadrilateral where your picture will appear, and then watch the magic happen. An experience is worth a million words, so just click it and try for yourself! 
 
-
-
+## TO DO: [Autorecorder](https://github.com/samlobel/AutoRecorder)
+There's a lot I can say here. Mainly, just describe what it does, it's pretty cool as is.
 
 
 
