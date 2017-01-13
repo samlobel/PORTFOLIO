@@ -47,8 +47,8 @@ A server, written in flask, which provides a web interface to a series of mass s
 
 Full disclosure: I wrote this as a helpful tool for my father's laboratoy (he's a biochemist). It's now used in his laboratory, as well as a few others which do similar work. We're planning to release it on a broader scale soon.
 
-## [Infinify](https://google.com)
-##### Found here: INSERT LINK HERE!
+## [Infinify](http://ec2-54-191-228-243.us-west-2.compute.amazonaws.com/)
+##### Also, might be [here](http://infinify.us)
 A pretty neat webapp I built with a friend, which provides the 'picture within a picture, to infinity' effect. You upload a photo, choose a rectangle that will be your picture, choose a quadrilateral where your picture will appear, and then watch the magic happen. An experience is worth a million words, so just click it and try for yourself! 
 
 ## TO DO: [Autorecorder](https://github.com/samlobel/AutoRecorder)
