@@ -1,5 +1,5 @@
 # PORTFOLIO
-##### A place to show off personal projects, both ML and not
+#### A place to show off personal projects, both ML and not
 The titles are links to the repositories themselves, and are followed by a summary of each project's design. For those interested, the projects' READMEs have more detailed overviews.
 ___
 
