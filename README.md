@@ -16,6 +16,22 @@ Definitely the biggest ML-undertaking I've done alone, although not the most uni
 
 ___
 
+### [Incoherent Deep Initialization](https://github.com/samlobel/INCOHERANT_INITIALIZATION)
+This is sort of an extension of orthogonal initialization, which I got interested in after reading [this paper](https://arxiv.org/abs/1312.6120). Orthogonal initialization is great for square matrices, but for compressing matrices (e.g. 100x50), you could think of a lot of bad orthogonal options (50 rows of all zeros, followed by an identity matrix for example). Orthogonal matrices make sure that each output is from a unique combination of inputs, but to this I added another constraint: that each input be used in a relatively unique way. Using the same map for two inputs is equivalent to adding them together in the previous layer, meaning you're not getting new information from the second one.
+
+This is essentially the same constraint used for incoherant dictionaries, one of the modern advances in sparse dictionary learning. Initializing with this constraint leads to improved performance, although I hope to quantify the improvement more than I have.
+
+#### Design overview
+* This is an initialization procedure that requires some training, sort of like LSUV. First, you start with a pre-initialized layer, maybe by Xavier initialization or maybe by orthogonal initialization.
+* Next, you create your incoherence metric. Two rows are incoherent if they have minimum overlap, so a sensible metric is the sum of the absolute value of the dot products of all the normalized rows with each other. Whew.
+* To get the dot products of the rows, you just do matrix multiplication of the matrix with its transpose. You then subtract away the diagonol (a row with itself). Finally, you divide by the norms of the both rows used for each dot product.
+* This process leaves you a matrix, in which elemnt<sub>ab</sub> is the normalized dot product of row a and row b. We take the absolute value of this matrix, and sum up its entries. Finally, we have a quantity to minimimze.
+* You now use standard tensorflow minimization to minimize this quantity. This process works surprisingly well. It also doesn't mess with the mean/variance, although if it did you could just scale it back.
+* When you've done this with all your layers, you can start training your  network for real. In my experiments, performing this process on xavier initialization is a substantial speedup compared to using pure xavier initialization. 
+
+
+___
+
 ### [Edgewise Scaling](https://github.com/samlobel/EDGEWISE_SCALING)
 This idea came about while training generative models, when I noticed that, at first, the images they outputted were dimmer around the edges than they were near the center. When using zero-padding, a filter near the edge has much less signal coming into it when compared to a filter near the center, leading to less variance in the signal. The achievement in this project was developing a scaling operation that corrected this variance, making truer initializations, and leaving the network with one less thing to learn.
 #### Design overview
