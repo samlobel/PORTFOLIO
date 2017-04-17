@@ -74,11 +74,10 @@ A server, written with Flask, which provides a web interface to a series of mass
 
 Full disclosure: I wrote this as a helpful tool for my father's laboratoy (he's a biochemist). It's now used in his lab, as well as a few others which do similar work. We're planning to release it on a broader scale soon.
 
-## [Infinify](http://ec2-54-191-228-243.us-west-2.compute.amazonaws.com/)
-##### Also, might be [here](http://infinify.us)
+### [Infinify](http://ec2-54-191-228-243.us-west-2.compute.amazonaws.com/)
 They say a picture within a picture is worth a million words, so I'll let this one speak for itself. It's a webapp I built with a friend, hosted on AWS.
 
-## [Autorecorder](https://github.com/samlobel/AutoRecorder)
+### [Autorecorder](https://github.com/samlobel/AutoRecorder)
 I wrote this after playing music alone, and one too many times wishing I had pressed record before I started playing. This program opens when I start my computer, and stores a queue of the last 5 minutes of sound going in to the microphone. You can save the 5 minutes at any time. I use it almost every day. Mac toolbar app, written in Swift.
 
 
