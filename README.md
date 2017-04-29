@@ -32,6 +32,23 @@ This is essentially the same constraint used for incoherant dictionaries, one of
 
 ___
 
+### [Automatic Options](https://github.com/samlobel/AUTOMATIC_OPTIONS)
+This one is still a work in progress, but here's the idea: there's a concept in RL called "options", which are re-useable policies that specialize in accomplishing sub-tasks (for example opening a door, standing up, etc. to get to the bathroom). This lets you have long-term goals as well as short-term methodologies. It's tough in enormous state-spaces though, because you can't map every state to an option, and it can be difficult to pick what your options actually should be.
+
+* I am using a special type of model, that I haven't seen before, to use options in RL. Instead of something that takes in a state and action, and outputs the next state (a traditional model), it takes in a state and a goal-state, and outputs the action that will bring the agent closest to its goal. This is an easy-to-define problem, and should be possible to construct a function approximator for. 
+
+* With this "State Controller", all you have to do is pick the right "goal states" to propel your agent towards its goal. You can train another function approximator to do this. In essence, what you are doing here is making an arbitrary option-executer, and a framework for learning which options to pick.
+
+* The benefit of this is that the "State Controller" continuously improves, regardless of which options the "Goal Controller" picks. Assuming that choosing states is an easier task than choosing actions (and it should be for many problems), this could improve learning greatly.
+
+* The other benefit is that if you learn a second task with the same agent (first walking, then standing up, for example), you can re-use the "State Controller", and only train a new "Goal Controller". In that way, this is a lifelong/multitask learning framework too.
+
+* For me, the difficulty has been in whitening the inputs. I am using MuJoCo, which works great except that inputs can vary wildly. I am using a normalization technique where I keep track of upper and lower bounds on each feature, and bound each input from zero to one. Unfortunately, this means that every time I change the bounds, much of my training goes out the window. And I can't use batch-normalization, because the actual values of the state are very important here. I think the solution is to find true bounds for all of the features, and initialize with those scaling-values.
+
+* This uses an Actor-Critic framework for the controllers. Much of the code has been written, I am now in the process of making tweaks so that it converges and improves.
+
+___
+
 ### [Edgewise Scaling](https://github.com/samlobel/EDGEWISE_SCALING)
 This idea came about while training generative models, when I noticed that, at first, the images they outputted were dimmer around the edges than they were near the center. When using zero-padding, a filter near the edge has much less signal coming into it when compared to a filter near the center, leading to less variance in the signal. The achievement in this project was developing a scaling operation that corrected this variance, making truer initializations, and leaving the network with one less thing to learn.
 #### Design overview
